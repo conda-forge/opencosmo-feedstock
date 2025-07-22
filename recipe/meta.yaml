@@ -29,6 +29,8 @@ requirements:
     - hdf5plugin
     - astropy-base >=7.0.1,<8.0.0
     - deprecated
+    - click >=8.2.1,<9.0.0
+    - networkx >=3.5,<4.0
 
 test:
   requires:
