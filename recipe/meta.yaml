@@ -1,5 +1,5 @@
 {% set name = "opencosmo" %}
-{% set version = "0.8.0" %}
+{% set version = "0.8.1" %}
 {% set python_min = "3.11" %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: bc53abb008d7c72b6f43a6e4488b6cd1b1ee9d214baf25d5139abd85ad9548a1
+  sha256: 12c815688c66339f3f06d69b0069ea00a5644f630783b68fcf1d82fcf02360f8
 
 build:
   noarch: python
@@ -31,7 +31,6 @@ requirements:
     - deprecated
     - click >=8.2.1,<9.0.0
     - networkx >=3.5,<4.0
-    - types-networkx (>=3.5.0.20250712,<4.0.0.0)
 
 
 test:
