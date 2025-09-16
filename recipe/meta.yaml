@@ -12,14 +12,14 @@ source:
 
 build:
   noarch: python
-  script: uv pip install . -vv --no-deps --no-build-isolation
+  script: pip install . -vv --no-deps --no-build-isolation
   number: 0
 
 requirements:
   host:
     - python {{ python_min }}
+    - uv-build
     - pip
-    - uv
   run:
     - python >={{ python_min }}
     - numpy >=1.26
