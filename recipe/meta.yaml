@@ -1,5 +1,6 @@
 {% set name = "opencosmo" %}
 {% set version = "0.9.6" %}
+{% set build_number = 1 %}
 {% set python_min = "3.11" %}
 
 package:
@@ -12,8 +13,8 @@ source:
 
 build:
   noarch: python
-  script: pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  script: {{ PYTHON }} -m pip install . -vv
+  number: 1
 
 requirements:
   host:
