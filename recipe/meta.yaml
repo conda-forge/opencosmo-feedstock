@@ -1,5 +1,5 @@
 {% set name = "opencosmo" %}
-{% set version = "0.9.6" %}
+{% set version = "1.0.0" %}
 {% set build_number = 1 %}
 {% set python_min = "3.11" %}
 
@@ -9,7 +9,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 7cb650e40eab2648c14f8b6659e20a7a83c4501673cc280c7233cb704404bf8b
+  sha256: adef7d33e10672c946f9cc20e5e376b1d714e6cb606b318c04ef1f292754bd91
 
 build:
   noarch: python
@@ -23,15 +23,19 @@ requirements:
     - pip
   run:
     - python >={{ python_min }}
-    - numpy >=1.26
+    - numpy >=2.0,<2.4
     - h5py
     - pydantic
     - healpy
     - hdf5plugin >=5.0.0,<6.0.0
-    - astropy-base >=7.0.1,<8.0.0
+    - astropy-base >=7.2.0,<8.0.0
     - deprecated
     - click >=8.2.1,<9.0.0
-    - networkx >=3.5,<4.0
+    - numba >=0.62.1
+    - rustworkx >=0.17.1
+    - healsparse ==1.11.1
+    - healpy >=1.18.1,<2.0.0
+
 
 
 test:
