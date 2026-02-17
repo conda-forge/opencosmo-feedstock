@@ -1,5 +1,5 @@
 {% set name = "opencosmo" %}
-{% set version = "1.1.0" %}
+{% set version = "1.1.2" %}
 {% set build_number = 0 %}
 {% set python_min = "3.11" %}
 
@@ -9,7 +9,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 7c16169c785a2097c070406fdbb0196d0ad1358bed9079462d6eed12580945bf
+  sha256: 836910e053c81a77ed949e8f994ce51ea28eb8206e5f27ca137d252eb5263776
 
 build:
   noarch: python
