@@ -27,7 +27,7 @@ requirements:
     - h5py
     - pydantic
     - healpy
-    - hdf5plugin >=5.0.0,<6.0.0
+    - hdf5plugin >=5.0.0,<6.0.0,!=5.1.0
     - astropy-base >=7.2.0,<8.0.0
     - deprecated
     - click >=8.2.1,<9.0.0
