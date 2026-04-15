@@ -1,7 +1,7 @@
 {% set name = "opencosmo" %}
 {% set version = "1.2.6" %}
 {% set build_number = 0 %}
-{% set python_min = "3.11" %}
+{% set python_min = "3.12" %}
 
 package:
   name: {{ name|lower }}
