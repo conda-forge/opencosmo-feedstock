@@ -1,0 +1,71 @@
+schema_version: 1
+
+context:
+  name: opencosmo
+  version: "1.3.1"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://github.com/ArgonneCPAC/OpenCosmo/archive/refs/tags/${{ version }}.tar.gz
+  sha256: 31fdab168956727e3aa6eddecddcaf00ebba845201986a739ee88b9cb43db604
+
+build:
+  number: 0
+  skip:
+    - win
+    - match(python, "<3.12")
+  script: 
+    - cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
+    - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+
+requirements:
+  build:
+    - ${{ compiler('c') }}
+    - ${{ stdlib('c') }}
+    - ${{ compiler('rust') }}
+    - maturin >=1.0,<2
+    - cargo-bundle-licenses
+    - if: build_platform != target_platform
+      then: python
+    - if: build_platform != target_platform
+      then: cross-python_${{ target_platform }}
+  host:
+    - python
+    - pip
+    - maturin >=1.0,<2
+  run:
+    - python
+    - numpy >=2.0,<2.5
+    - h5py >=3.12.1,<4.0.0
+    - pydantic >=2.10.6,<3.0.0
+    - healpy >=1.19.0,<2.0
+    - hdf5plugin >=5.0.0,!=5.1.0
+    - astropy-base >=7.2.0,<8.0.0
+    - deprecated >=1.2.48,<2.0
+    - click >=8.2.1,<9.0.0
+    - rustworkx >=0.17.1
+    - healsparse >=1.11.1,<2.0
+
+tests:
+  - python:
+      imports:
+        - opencosmo
+        - opencosmo._lib
+      pip_check: true
+
+about:
+  summary: The OpenCosmo Python Toolkit
+  description: |
+    The OpenCosmo Python Toolkit provides utilities for reading, writing and manipulating data from cosmological simulations produced by the Cosmolgical Physics and Advanced Computing (CPAC) group at Argonne National Laboratory. The OpenCosmo toolkit integrates with standard tools such as AstroPy, and allows you to manipulate data in a fully-consistent cosmological context.
+
+  license: BSD-3-Clause
+  license_file: LICENSE.md
+  homepage: https://github.com/ArgonneCPAC/OpenCosmo
+  documentation: https://opencosmo.readthedocs.org/
+
+extra:
+  recipe-maintainers:
+    - AstroPatty
