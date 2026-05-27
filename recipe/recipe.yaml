@@ -17,7 +17,9 @@ build:
   skip:
     - win
     - match(python, "<3.12")
-  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  script: 
+    - cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
+    - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   build:
@@ -25,6 +27,7 @@ requirements:
     - ${{ stdlib('c') }}
     - ${{ compiler('rust') }}
     - maturin >=1.0,<2
+    - cargo-bundle-licenses
     - if: build_platform != target_platform
       then: python
     - if: build_platform != target_platform
