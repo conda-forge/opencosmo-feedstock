@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: opencosmo
-  version: "1.4.0"
+  version: "1.4.1"
 
 package:
   name: ${{ name|lower }}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://github.com/ArgonneCPAC/OpenCosmo/archive/refs/tags/${{ version }}.tar.gz
-  sha256: 673940c459125fe0547a86ec0bc3a568d26d5477e0a319158d1cc589d61fcb85
+  sha256: 50672a48139d3776303091d4689ef99526a03d921b8eb95ae8ec2ae1dbbca1e1
 
 build:
   number: 0
